@@ -44,7 +44,7 @@ export class UsbCCable extends Module {
     // Cable: bends to one side right away, then hangs down — keeping clear of
     // anything else hanging off the same end (e.g. a Grove unit).
     const curve = new THREE.CatmullRomCurve3([
-      [0, 18.5, 0], [0, 22, 1.5], [-3, 26, 3], [-10, 30, 3.5], [-16, 36, 3], [-18.5, 46, 2], [-19.5, 62, 1],
+      [0, 18.5, 0], [-3, 21, 2], [-11, 23, 3.5], [-16.5, 27, 3.5], [-18.5, 36, 2.5], [-19, 50, 1.5], [-19.5, 64, 1],
     ].map((p) => new THREE.Vector3(...p)));
     this.body.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 96, 1.6, 14), shell));
   }
