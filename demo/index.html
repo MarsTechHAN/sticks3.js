@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>sticks3.js — interactive M5StickS3</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="stage" id="stage">
+      <header class="brand">
+        <h1>sticks3<span>.js</span></h1>
+        <p>Pluggable three.js hardware view · M5Stack StickS3 (K150)</p>
+      </header>
+
+      <nav class="views" id="views" aria-label="Views">
+        <button data-view="front" class="on">Front</button>
+        <button data-view="back">Back</button>
+        <button data-view="left">Left</button>
+        <button data-view="right">Right</button>
+        <button data-view="top">Top</button>
+        <button data-view="bottom">Bottom</button>
+        <button data-view="iso">3/4</button>
+        <span class="sep"></span>
+        <button data-action="inspect" title="Zoom into the LCD to see sub-pixels">Inspect pixels</button>
+        <button data-action="reset">Reset</button>
+      </nav>
+
+      <div class="hint">
+        <kbd>drag</kbd> rotate · <kbd>wheel</kbd> zoom · <kbd>right-drag</kbd> pan · <kbd>dbl-click</kbd> reset
+        <br /><kbd>Space</kbd> KEY1 · <kbd>B</kbd> KEY2 · <kbd>P</kbd> Power · click a port to plug in
+      </div>
+
+      <div class="tooltip" id="tooltip" hidden></div>
+      <div class="fps" id="fps"></div>
+    </section>
+
+    <aside class="panel">
+      <section>
+        <h2>Device</h2>
+        <dl class="spec" id="spec"></dl>
+      </section>
+
+      <section>
+        <h2>Display <small>lcd · 135×240</small></h2>
+        <label class="row">Backlight <input type="range" id="backlight" min="0" max="1" step="0.01" value="1" /></label>
+        <label class="row">Pixel style
+          <select id="style">
+            <option value="lcd">LCD · RGB stripe</option>
+            <option value="oled">OLED · square</option>
+            <option value="flat">Flat</option>
+          </select>
+        </label>
+        <label class="row switch">Sub-pixel effect <input type="checkbox" id="pixelEffect" checked /></label>
+        <label class="row switch">Touch layer <input type="checkbox" id="touch" /></label>
+      </section>
+
+      <section>
+        <h2>Feedback</h2>
+        <div class="buttons">
+          <button id="vibShort">Vibrate 200 ms</button>
+          <button id="vibPattern">Pattern</button>
+          <button id="beep">Beep</button>
+        </div>
+        <label class="row switch">Sound <input type="checkbox" id="sound" checked /></label>
+      </section>
+
+      <section>
+        <h2>Ports <small>click a port on the model to plug in</small></h2>
+        <div id="ports"></div>
+      </section>
+
+      <section>
+        <h2>IMU <small>BMI270 · from orientation</small></h2>
+        <div class="imu" id="imu"></div>
+      </section>
+
+      <section class="grow">
+        <h2>Input events <small>device → simulator</small><button class="link" id="clearLog">clear</button></h2>
+        <ol class="log" id="log"></ol>
+      </section>
+    </aside>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

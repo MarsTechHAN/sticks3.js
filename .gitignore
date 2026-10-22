@@ -1,0 +1,4 @@
+node_modules/
+dist-demo/
+snapshots/
+.DS_Store
